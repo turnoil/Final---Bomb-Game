@@ -19,6 +19,7 @@ public class GameDriver extends JApplet implements KeyListener, ActionListener
 	boolean d = false;
 	boolean w = false;
 	boolean s = false;
+	boolean moveornotplayer1, moveornotplayer2;
 	int dir = 0;
 	int dir2 = 0;
 	//Right 1, Up 2, Left 3, Down 4
@@ -36,8 +37,8 @@ public class GameDriver extends JApplet implements KeyListener, ActionListener
 		i2 = getImage(getDocumentBase(), "sprite1_2.png");
 		i3 = getImage(getDocumentBase(), "sprite1_3.png");
 		i4 = getImage(getDocumentBase(), "sprite1_4.png");
-		spritee = new Sprite1(i1, i2, i3, i4, 200, 800, 0, 2);
-		spriteq = new Sprite1(i1, i2, i3, i4, 800, 800, 0, 2);
+		spritee = new Sprite1(i1, i2, i3, i4, 200, 800);
+		spriteq = new Sprite1(i1, i2, i3, i4, 800, 800);
 		t = new Timer(delay, this);
 		t.start();
 	}
@@ -141,37 +142,103 @@ public class GameDriver extends JApplet implements KeyListener, ActionListener
 	{
 		if (q.getSource() == t)
 		{
-			if (d == true)
+			int currentx1 = spritee.getX();
+			int currenty1 = spritee.getY();
+			int currentx2 = spriteq.getX();
+			int currenty2 = spriteq.getY();
+			boolean leftwallboo1 = leftwall.checkBoundaries(currentx1, currenty1);
+			boolean rightwallboo1 = rightwall.checkBoundaries(currentx1, currenty1);
+			boolean topwallboo1 = topwall.checkBoundaries(currentx1, currenty1);
+			boolean bottomwallboo1 = bottomwall.checkBoundaries(currentx1, currenty1);
+			if (leftwallboo1 == true || rightwallboo1 == true || topwallboo1 == true || bottomwallboo1 == true)
 			{
-				spritee.right();
+				moveornotplayer1 = false;
+				if (dir == 1)
+				{
+					spritee.left();
+				}
+				if (dir == 2)
+				{
+					spritee.down();
+				}
+				if (dir == 3)
+				{
+					spritee.right();
+				}
+				if (dir == 4)
+				{
+					spritee.up();
+				}
 			}
-			if (a == true)
+			else
 			{
-				spritee.left();
+				moveornotplayer1 = true;
 			}
-			if (w == true)
+			boolean leftwallboo2 = leftwall.checkBoundaries(currentx2, currenty2);
+			boolean rightwallboo2 = rightwall.checkBoundaries(currentx2, currenty2);
+			boolean topwallboo2 = topwall.checkBoundaries(currentx2, currenty2);
+			boolean bottomwallboo2 = bottomwall.checkBoundaries(currentx2, currenty2);
+			if (leftwallboo2 == true || rightwallboo2 == true || topwallboo2 == true || bottomwallboo2 == true)
 			{
-				spritee.up();
+				moveornotplayer2 = false;
+				if (dir2 == 1)
+				{
+					spriteq.left();
+				}
+				if (dir2 == 2)
+				{
+					spriteq.down();
+				}
+				if (dir2 == 3)
+				{
+					spriteq.right();
+				}
+				if (dir2 == 4)
+				{
+					spriteq.up();
+				}
 			}
-			if (s == true)
+			else
 			{
-				spritee.down();
+				moveornotplayer2 = true;
 			}
-			if (right == true)
+			if (moveornotplayer1 == true)
 			{
-				spriteq.right();
+				if (d == true)
+				{
+					spritee.right();
+				}
+				if (a == true)
+				{
+					spritee.left();
+				}
+				if (w == true)
+				{
+					spritee.up();
+				}
+				if (s == true)
+				{
+					spritee.down();
+				}
 			}
-			if (up == true)
+			if (moveornotplayer2 == true)
 			{
-				spriteq.up();
-			}
-			if (down == true)
-			{
-				spriteq.down();
-			}
-			if (left == true)
-			{
-				spriteq.left();
+				if (right == true)
+				{
+					spriteq.right();
+				}
+				if (up == true)
+				{
+					spriteq.up();
+				}
+				if (down == true)
+				{
+					spriteq.down();
+				}
+				if (left == true)
+				{
+					spriteq.left();
+				}
 			}
 		}
 		repaint();
