@@ -5,8 +5,8 @@ import java.awt.*;
 public class Sprite1
 {
 	Image img1, img2, img3, img4, currentImage;
-	int x, y, yvel, jnum;
-	public Sprite1(Image i1, Image i2, Image i3, Image i4, int xe, int ye, int yvelly, int jumpnum)
+	int x, y;
+	public Sprite1(Image i1, Image i2, Image i3, Image i4, int xe, int ye)
 	{
 		img1 = i1;
 		img2 = i2;
@@ -15,8 +15,6 @@ public class Sprite1
 		currentImage = i1;
 		x = xe;
 		y = ye;
-		yvel = yvelly;
-		jnum = jumpnum;
 	}
 	public void draw(Graphics g)
 	{
@@ -49,12 +47,10 @@ public class Sprite1
 	{
 		x = x - 10;
 	}
-
 	public void up()
 	{
 		y = y - 10;
 	}
-
 	public void down()
 	{
 		y = y + 10;
@@ -62,9 +58,12 @@ public class Sprite1
 	public void jump()
 	{
 	}
+	public int getX()
+	{
+		return x;
+	}
 	public int getY()
 	{
 		return y;
 	}
-
 }
