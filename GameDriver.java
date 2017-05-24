@@ -33,10 +33,10 @@ public class GameDriver extends JApplet implements KeyListener, ActionListener
 		rightwall = new Wall(1260, 0, 20, 1000);
 		topwall = new Wall(0, 0, 1260, 20);
 		bottomwall = new Wall(0, 900, 1260, 20);
-		i1 = getImage(getDocumentBase(), "sprite1_1.png");
-		i2 = getImage(getDocumentBase(), "sprite1_2.png");
-		i3 = getImage(getDocumentBase(), "sprite1_3.png");
-		i4 = getImage(getDocumentBase(), "sprite1_4.png");
+		i1 = getImage(getDocumentBase(), "tankright.png");
+		i2 = getImage(getDocumentBase(), "tankup.png");
+		i3 = getImage(getDocumentBase(), "tankleft.png");
+		i4 = getImage(getDocumentBase(), "tankdown.png");
 		spritee = new Sprite1(i1, i2, i3, i4, 200, 800);
 		spriteq = new Sprite1(i1, i2, i3, i4, 800, 800);
 		t = new Timer(delay, this);
