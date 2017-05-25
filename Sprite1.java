@@ -5,8 +5,8 @@ import java.awt.*;
 public class Sprite1
 {
 	Image img1, img2, img3, img4, currentImage;
-	int x, y, yvel, jnum;
-	public Sprite1(Image i1, Image i2, Image i3, Image i4, int xe, int ye, int yvelly, int jumpnum)
+	int x, y;
+	public Sprite1(Image i1, Image i2, Image i3, Image i4, int xe, int ye)
 	{
 		img1 = i1;
 		img2 = i2;
@@ -15,14 +15,12 @@ public class Sprite1
 		currentImage = i1;
 		x = xe;
 		y = ye;
-		yvel = yvelly;
-		jnum = jumpnum;
 	}
 	public void draw(Graphics g)
 	{
 		g.drawImage(currentImage, x, y, null);
 	}
-	public void cycleSprite()
+	/*public void cycleSprite()
 	{
 		if (currentImage == img1)
 		{
@@ -40,35 +38,57 @@ public class Sprite1
 		{
 			currentImage = img1;
 		}
-	}
-	public void right()
+	}*/
+	public void right(boolean moverightornot)
 	{
-		x = x + 10;
-		currentImage = img1;
+		if (moverightornot == false)
+		{
+		}
+		else
+		{
+			x = x + 5;
+			currentImage = img1;
+		}
 	}
-	public void left()
+	public void left(boolean moveleftornot)
 	{
-		x = x - 10;
-		currentImage = img3;
+		if (moveleftornot == false)
+		{
+		}
+		else
+		{
+			x = x - 5;
+			currentImage = img3;
+		}
 	}
-
-	public void up()
+	public void up(boolean moveupornot)
 	{
-		y = y - 10;
-		currentImage = img2;
+		if (moveupornot == false)
+		{
+		}
+		else
+		{
+			y = y - 5;
+			currentImage = img2;
+		}
 	}
-
-	public void down()
+	public void down(boolean movedownornot)
 	{
-		y = y + 10;
-		currentImage = img4;
+		if (movedownornot == false)
+		{
+		}
+		else
+		{
+			y = y + 5;
+			currentImage = img4;
+		}
 	}
-	public void jump()
+	public int getX()
 	{
+		return x;
 	}
 	public int getY()
 	{
 		return y;
 	}
-
 }
