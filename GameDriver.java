@@ -19,6 +19,8 @@ public class GameDriver extends JApplet implements KeyListener, ActionListener
 	boolean d = false;
 	boolean w = false;
 	boolean s = false;
+	boolean ee = false;
+	boolean control = false;
 	int dir = 0;
 	int dir2 = 0;
 	//Right 1, Up 2, Left 3, Down 4
@@ -32,10 +34,10 @@ public class GameDriver extends JApplet implements KeyListener, ActionListener
 		rightwall = new Wall(1260, 0, 20, 1000);
 		topwall = new Wall(0, 0, 1260, 20);
 		bottomwall = new Wall(0, 900, 1260, 20);
-		i1 = getImage(getDocumentBase(), "sprite1_1.png");
-		i2 = getImage(getDocumentBase(), "sprite1_2.png");
-		i3 = getImage(getDocumentBase(), "sprite1_3.png");
-		i4 = getImage(getDocumentBase(), "sprite1_4.png");
+		i1 = getImage(getDocumentBase(), "tankright.png");
+		i2 = getImage(getDocumentBase(), "tankup.png");
+		i3 = getImage(getDocumentBase(), "tankleft.png");
+		i4 = getImage(getDocumentBase(), "tankdown.png");
 		spritee = new Sprite1(i1, i2, i3, i4, 200, 800, 0, 2);
 		spriteq = new Sprite1(i1, i2, i3, i4, 800, 800, 0, 2);
 		t = new Timer(delay, this);
@@ -77,6 +79,11 @@ public class GameDriver extends JApplet implements KeyListener, ActionListener
 			s = true;
 			dir = 4;
 		}
+		if (e.getKeyCode() == KeyEvent.VK_E)
+		{
+			ee = true;
+
+		}
 		if (e.getKeyCode() == KeyEvent.VK_RIGHT)
 		{
 			right = true;
@@ -96,6 +103,10 @@ public class GameDriver extends JApplet implements KeyListener, ActionListener
 		{
 			down = true;
 			dir2 = 4;
+		}
+		if (e.getKeyCode() == KeyEvent.VK_CONTROL)
+		{
+			control = true;
 		}
 	}
 	public void keyReleased(KeyEvent e)
@@ -117,6 +128,10 @@ public class GameDriver extends JApplet implements KeyListener, ActionListener
 		{
 			s = false;
 		}
+		if (e.getKeyCode() == KeyEvent.VK_E)
+		{
+			ee = false;
+		}
 		if (e.getKeyCode() == KeyEvent.VK_RIGHT)
 		{
 			right = false;
@@ -132,6 +147,10 @@ public class GameDriver extends JApplet implements KeyListener, ActionListener
 		if (e.getKeyCode() == KeyEvent.VK_DOWN)
 		{
 			down = false;
+		}
+		if (e.getKeyCode() == KeyEvent.VK_CONTROL)
+		{
+			control = false;
 		}
 	}
 	public void keyTyped(KeyEvent e)
@@ -172,6 +191,14 @@ public class GameDriver extends JApplet implements KeyListener, ActionListener
 			if (left == true)
 			{
 				spriteq.left();
+			}
+			if (ee == true)
+			{
+
+			}
+			if (control == true)
+			{
+
 			}
 		}
 		repaint();
