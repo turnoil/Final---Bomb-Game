@@ -44,20 +44,24 @@ public class Sprite1
 	public void right()
 	{
 		x = x + 10;
+		currentImage = img1;
 	}
 	public void left()
 	{
 		x = x - 10;
+		currentImage = img3;
 	}
 
 	public void up()
 	{
 		y = y - 10;
+		currentImage = img2;
 	}
 
 	public void down()
 	{
 		y = y + 10;
+		currentImage = img4;
 	}
 	public void jump()
 	{
