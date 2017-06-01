@@ -20,7 +20,7 @@ public class Sprite1
 	{
 		g.drawImage(currentImage, x, y, null);
 	}
-	public void cycleSprite()
+	/*public void cycleSprite()
 	{
 		if (currentImage == img1)
 		{
@@ -38,25 +38,50 @@ public class Sprite1
 		{
 			currentImage = img1;
 		}
-	}
-	public void right()
+	}*/
+	public void right(boolean moverightornot)
 	{
-		x = x + 10;
+		if (moverightornot == false)
+		{
+		}
+		else
+		{
+			x = x + 5;
+			currentImage = img1;
+		}
 	}
-	public void left()
+	public void left(boolean moveleftornot)
 	{
-		x = x - 10;
+		if (moveleftornot == false)
+		{
+		}
+		else
+		{
+			x = x - 5;
+			currentImage = img3;
+		}
 	}
-	public void up()
+	public void up(boolean moveupornot)
 	{
-		y = y - 10;
+		if (moveupornot == false)
+		{
+		}
+		else
+		{
+			y = y - 5;
+			currentImage = img2;
+		}
 	}
-	public void down()
+	public void down(boolean movedownornot)
 	{
-		y = y + 10;
-	}
-	public void jump()
-	{
+		if (movedownornot == false)
+		{
+		}
+		else
+		{
+			y = y + 5;
+			currentImage = img4;
+		}
 	}
 	public int getX()
 	{
