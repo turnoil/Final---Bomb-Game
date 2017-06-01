@@ -36,7 +36,7 @@ public class Wall
 	}
 	public boolean checkBoundaries(int playerx, int playery)
 	{
-		if ((playerx + 30 > x) && (playerx < x + xsize) && (playery + 30 > y) && (playery < y + ysize))
+		if ((playerx + 50 > x) && (playerx < x + xsize) && (playery + 50 > y) && (playery < y + ysize))
 		{
 			inwall = true;
 		}
