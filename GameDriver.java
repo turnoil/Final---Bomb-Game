@@ -7,6 +7,7 @@ public class GameDriver extends JApplet implements KeyListener, ActionListener
 	Wall leftwall, rightwall, topwall, bottomwall, wall1, wall2, wall3, wall4;
 	Image background;
 	Image i1, i2, i3, i4;
+	Image threebombs;
 	Image bomb1;
 	Image twoandhalfbombs;
 	Image twobombs;
@@ -57,6 +58,7 @@ public class GameDriver extends JApplet implements KeyListener, ActionListener
 		i3 = getImage(getDocumentBase(), "tankleft.png");
 		i4 = getImage(getDocumentBase(), "tankdown.png");
 		bomb1 = getImage(getDocumentBase(), "ez1.png");
+		threebombs = getImage(getDocumentBase(), "3bombs.png");
 		twoandhalfbombs = getImage(getDocumentBase(), "2andhalfbombs.png");
 		twobombs = getImage(getDocumentBase(), "2bombs.png");
 		oneandhalfbombs = getImage(getDocumentBase(), "1andhalfbombs.png");
@@ -96,6 +98,8 @@ public class GameDriver extends JApplet implements KeyListener, ActionListener
 				player1bomb.setLocation(currentx1, currenty1, dir);
 			}
 			player1bomb.drawProjectile(g);
+			ba1.draw(g);
+			ba2.draw(g);
 		}
 	}
 	public void keyPressed(KeyEvent e)
